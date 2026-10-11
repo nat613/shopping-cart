@@ -1,0 +1,23 @@
+# Secrets / local config
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
