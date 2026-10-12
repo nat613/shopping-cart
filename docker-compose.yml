@@ -1,0 +1,49 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      #for real word
+      #MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+      #for exam
+      MSSQL_SA_PASSWORD: myStrong!Passw0rd
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    healthcheck:
+      # -C trusts the container's self-signed certificate (local development only).
+      # In production, use a certificate from a trusted CA instead.
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $$MSSQL_SA_PASSWORD -Q 'SELECT 1'"]
+      interval: 10s
+      start_period: 30s
+      timeout: 5s
+      retries: 10
+
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      # Dev only: security off for simplicity; in production enable xpack security (TLS + authentication)!!!
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+      # Only the HTTP API port is published. Port 9300 (node-to-node transport)
+      # is not needed: this is a single-node setup, so nothing connects to it.
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      interval: 10s
+      start_period: 30s
+      timeout: 5s
+      retries: 10
+volumes:
+  sqlserver_data:
+    driver: local
+  elasticsearch_data:
+    driver: local
