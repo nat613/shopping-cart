@@ -37,6 +37,28 @@ namespace Catalog.Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "תוניבגו בלח"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "הקיטלאוט"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "רשב"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "תוריפו תוקרי"
+                        });
                 });
 
             modelBuilder.Entity("Catalog.Api.Models.Product", b =>
@@ -60,6 +82,68 @@ namespace Catalog.Api.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            Name = "גטוק'"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            Name = "3% בלח"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            Name = "הצומח תנמש"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 2,
+                            Name = "םייניש תחשמ"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 2,
+                            Name = "ןובס"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 3,
+                            Name = "תויקינקנ"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 3,
+                            Name = "םייקוש"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 3,
+                            Name = "ןומלס"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 4,
+                            Name = "תוינבגע"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 4,
+                            Name = "םיחופת"
+                        });
                 });
 
             modelBuilder.Entity("Catalog.Api.Models.Product", b =>
