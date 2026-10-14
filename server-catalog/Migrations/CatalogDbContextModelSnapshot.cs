@@ -42,22 +42,22 @@ namespace Catalog.Api.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "תוניבגו בלח"
+                            Name = "חלב וגבינות"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "הקיטלאוט"
+                            Name = "טואלטיקה"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "רשב"
+                            Name = "בשר"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "תוריפו תוקרי"
+                            Name = "פירות וירקות"
                         });
                 });
 
@@ -88,61 +88,61 @@ namespace Catalog.Api.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            Name = "גטוק'"
+                            Name = "קוטג'"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            Name = "3% בלח"
+                            Name = "חלב 3%"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 1,
-                            Name = "הצומח תנמש"
+                            Name = "שמנת חמוצה"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 2,
-                            Name = "םייניש תחשמ"
+                            Name = "משחת שיניים"
                         },
                         new
                         {
                             Id = 5,
                             CategoryId = 2,
-                            Name = "ןובס"
+                            Name = "סבון"
                         },
                         new
                         {
                             Id = 6,
                             CategoryId = 3,
-                            Name = "תויקינקנ"
+                            Name = "נקניקיות"
                         },
                         new
                         {
                             Id = 7,
                             CategoryId = 3,
-                            Name = "םייקוש"
+                            Name = "שוקיים"
                         },
                         new
                         {
                             Id = 8,
                             CategoryId = 3,
-                            Name = "ןומלס"
+                            Name = "סלמון"
                         },
                         new
                         {
                             Id = 9,
                             CategoryId = 4,
-                            Name = "תוינבגע"
+                            Name = "עגבניות"
                         },
                         new
                         {
                             Id = 10,
                             CategoryId = 4,
-                            Name = "םיחופת"
+                            Name = "תפוחים"
                         });
                 });
 

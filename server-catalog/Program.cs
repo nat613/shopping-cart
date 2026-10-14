@@ -1,5 +1,6 @@
 using Catalog.Api.Data;
 using Microsoft.EntityFrameworkCore;
+using Catalog.Api.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,5 +21,21 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.MapGet("/api/categories", async (CatalogDbContext db, CancellationToken ct) =>
+{
+    var categories = await db.Categories
+     .AsNoTracking()
+     .OrderBy(c => c.Name)
+     .Select(c => new CategoryDto(
+         c.Id,
+         c.Name,
+         c.Products
+             .OrderBy(p => p.Name)
+             .Select(p => new ProductDto(p.Id, p.Name))
+             .ToList()))
+     .ToListAsync(ct);
+    return Results.Ok(categories);
+});
 
 app.Run();
