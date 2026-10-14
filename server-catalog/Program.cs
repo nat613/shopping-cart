@@ -20,6 +20,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "Catalog API v1"));
 }
 
 app.MapGet("/api/categories", async (CatalogDbContext db, CancellationToken ct) =>
