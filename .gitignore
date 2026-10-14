@@ -9,6 +9,13 @@ dist/
 build/
 coverage/
 *.log
+*.tsbuildinfo
+.eslintcache
+.vite/
+
+- *.tsbuildinfo
+- .eslintcache
+- .vite/
 
 # .NET
 bin/
