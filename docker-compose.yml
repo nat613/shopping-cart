@@ -55,6 +55,18 @@ services:
         condition: service_healthy
 
 
+  orders-api:
+    build: ./server-orders
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+
 volumes:
   sqlserver_data:
     driver: local
